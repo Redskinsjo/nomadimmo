@@ -1,26 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+#__next {
+  font-family: "Open Sans";
+  margin: 0px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  body {
-    color: white;
-    background: black;
+  100% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .background-darkgray-70 {
+    background: rgba(55, 64, 80, 0.7);
+  }
+  .background-lightgray-70 {
+    background: rgba(165, 192, 240, 0.3);
+  }
+  .fadeIn {
+    animation: fadeIn 0.5s 1 forwards linear;
+  }
+  .border-onleft {
+    border-left-style: solid;
+    border-left-color: lightgray;
+    border-left-width: 2px;
+  }
+}
+
+@layer components {
+  .text-hero {
+    @apply sm:text-[5vw] md:text-[4vw] lg:text-[4vw] text-[44px];
+  }
+  .text-titles {
+    @apply sm:text-[3vw] md:text-[3vw] lg:text-[3vw] text-[32px];
+  }
+  .text-emoji {
+    @apply sm:text-[3vw] md:text-[2vw] lg:text-[2vw] text-[32px];
+  }
+  .text-parag {
+    @apply sm:text-[3vw] md:text-[2vw] lg:text-[2vw] text-[22px];
+  }
+  .w-logo {
+    @apply sm:w-[20vw] md:w-[20vw] lg:w-[170px] xl:w-[170px] w-[170px] h-auto;
   }
 }

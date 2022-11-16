@@ -1,0 +1,28 @@
+# Redirect visitors who request the root domain path (e.g. www.mywebsite.ch) to the appropriate language version
+# Fallback to English version if no matching browser language defined
+# Based on language version being at e.g. www.mywebsite.ch/de/
+# This has no effect on any subpaths of the website, and therefore has no effect on e.g. WordPress admin.
+# Using a 302 temporary redirect header stops the redirection from being cached in the browser.
+
+# language is ES-MX (Mexico)
+RewriteCond %{HTTP:Accept-Language} ^es-mx [NC]
+RewriteRule ^$ /mx/ [L,R=302]
+
+# language is ES-ES (Spain)
+RewriteCond %{HTTP:Accept-Language} ^es-es [NC]
+RewriteRule ^$ /es/ [L,R=302]
+
+# language starts with DE
+RewriteCond %{HTTP:Accept-Language} ^de [NC]
+RewriteRule ^$ /de/ [L,R=302]
+
+# language starts with FR
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteRule ^$ /fr/ [L,R=302]
+
+# language starts with IT
+RewriteCond %{HTTP:Accept-Language} ^it [NC]
+RewriteRule ^$ /it/ [L,R=302]
+
+# else redirect to the English version
+RewriteRule ^$ /en/ [L,R=302]
